@@ -20,15 +20,15 @@ Checklist bertahap dari instalasi Go hingga production. Tandai [x] saat selesai.
 
 ---
 
-## [ ] Fase 2 — Dasar-dasar Go (Wajib sebelum mulai project)
+## [x] Fase 2 — Dasar-dasar Go (Wajib sebelum mulai project)
 
 ### Sintaks Dasar
-- [ ] Pahami deklarasi variabel: `var` vs `:=`
-- [ ] Pahami tipe data dasar: `string`, `int`, `bool`, `float64`
-- [ ] Pahami `struct` — ekuivalen `class` di Java
-- [ ] Pahami `interface` di Go — berbeda dengan Java (implicit, bukan explicit)
-- [ ] Pahami pointer: `*` dan `&` — tidak ada di Java
-- [ ] Pahami error handling di Go: `if err != nil` (tidak ada try-catch)
+- [x] Pahami deklarasi variabel: `var` vs `:=`
+- [x] Pahami tipe data dasar: `string`, `int`, `bool`, `float64`
+- [x] Pahami `struct` — ekuivalen `class` di Java
+- [x] Pahami `interface` di Go — berbeda dengan Java (implicit, bukan explicit)
+- [x] Pahami pointer: `*` dan `&` — tidak ada di Java
+- [x] Pahami error handling di Go: `if err != nil` (tidak ada try-catch)
 
 ### Ekuivalen Java → Go
 | Java | Go |
@@ -42,19 +42,19 @@ Checklist bertahap dari instalasi Go hingga production. Tandai [x] saat selesai.
 | `Optional<User>` | `*User` (pointer, bisa nil) |
 
 ### Package & Module
-- [ ] Pahami struktur `go.mod` — ekuivalen `pom.xml`
-- [ ] Pahami `package main` dan `package internal`
-- [ ] Pahami cara import package: `import "github.com/gofiber/fiber/v2"`
-- [ ] Install dependencies: `go get <package>` (ekuivalen `mvn dependency:resolve`)
+- [x] Pahami struktur `go.mod` — ekuivalen `pom.xml`
+- [x] Pahami `package main` dan `package internal`
+- [x] Pahami cara import package: `import "github.com/gofiber/fiber/v2"`
+- [x] Install dependencies: `go get <package>` (ekuivalen `mvn dependency:resolve`)
 
 ---
 
-## [ ] Fase 3 — Init Project Go Sentinel
+## [x] Fase 3 — Init Project Go Sentinel
 
 ### Setup Project
-- [ ] Inisialisasi Go module: `go mod init github.com/alfaizuna/go-sentinel`
-- [ ] Buat struktur folder sesuai PRD.md
-- [ ] Install semua dependency:
+- [x] Inisialisasi Go module: `go mod init github.com/alfaizuna/go-sentinel`
+- [x] Buat struktur folder sesuai PRD.md
+- [x] Install semua dependency:
   ```bash
   go get github.com/gofiber/fiber/v2
   go get github.com/golang-jwt/jwt/v5
@@ -65,7 +65,7 @@ Checklist bertahap dari instalasi Go hingga production. Tandai [x] saat selesai.
   ```
 
 ### Config & Database
-- [ ] Buat file `.env` dengan variabel:
+- [x] Buat file `.env` dengan variabel:
   ```
   DB_HOST=localhost
   DB_PORT=5432
@@ -76,17 +76,17 @@ Checklist bertahap dari instalasi Go hingga production. Tandai [x] saat selesai.
   JWT_EXPIRATION_HOURS=24
   APP_PORT=8081
   ```
-- [ ] Buat `.env.example` (copy dari `.env` tanpa nilai sensitif)
-- [ ] Buat `internal/config/config.go` — load env ke struct Config
-- [ ] Buat database: `createdb gosentinel_db`
-- [ ] Koneksikan GORM ke PostgreSQL
+- [x] Buat `.env.example` (copy dari `.env` tanpa nilai sensitif)
+- [x] Buat `internal/config/config.go` — load env ke struct Config
+- [x] Buat database: `createdb gosentinel_db`
+- [x] Koneksikan GORM ke PostgreSQL
 
 ---
 
-## [ ] Fase 4 — Model & Repository
+## [x] Fase 4 — Model & Repository
 
 ### Model
-- [ ] Buat `internal/model/user.go`:
+- [x] Buat `internal/model/user.go`:
   ```go
   type Role string
   const (
@@ -101,67 +101,67 @@ Checklist bertahap dari instalasi Go hingga production. Tandai [x] saat selesai.
       Role     Role       `gorm:"default:USER"`
   }
   ```
-- [ ] Jalankan GORM AutoMigrate untuk membuat tabel `users`
-- [ ] Pahami perbedaan: `gorm.Model` di Go vs `@Entity` + Hibernate di Java
+- [x] Jalankan GORM AutoMigrate untuk membuat tabel `users`
+- [x] Pahami perbedaan: `gorm.Model` di Go vs `@Entity` + Hibernate di Java
 
 ### Repository
-- [ ] Buat `internal/repository/user_repository.go`:
-  - [ ] `FindByEmail(email string) (*model.User, error)`
-  - [ ] `ExistsByEmail(email string) bool`
-  - [ ] `Save(user *model.User) error`
-- [ ] Pahami: GORM di Go lebih eksplisit dibanding Spring Data JPA
+- [x] Buat `internal/repository/user_repository.go`:
+  - [x] `FindByEmail(email string) (*model.User, error)`
+  - [x] `ExistsByEmail(email string) bool`
+  - [x] `Save(user *model.User) error`
+- [x] Pahami: GORM di Go lebih eksplisit dibanding Spring Data JPA
 
 ---
 
-## [ ] Fase 5 — JWT Service
+## [x] Fase 5 — JWT Service
 
-- [ ] Buat `internal/service/jwt_service.go`:
-  - [ ] `GenerateToken(email string) (string, error)` — buat JWT token baru
-  - [ ] `ValidateToken(tokenString string) (*Claims, error)` — validasi & ekstrak claims
-- [ ] Pahami struct `Claims` yang embed `jwt.RegisteredClaims`
-- [ ] Pahami perbedaan: di Go tidak ada `UserDetails` interface, cukup string email
-- [ ] Test manual generate & parse token
+- [x] Buat `internal/service/jwt_service.go`:
+  - [x] `GenerateToken(email string) (string, error)` — buat JWT token baru
+  - [x] `ValidateToken(tokenString string) (*Claims, error)` — validasi & ekstrak claims
+- [x] Pahami struct `Claims` yang embed `jwt.RegisteredClaims`
+- [x] Pahami perbedaan: di Go tidak ada `UserDetails` interface, cukup string email
+- [x] Test manual generate & parse token
 
 ---
 
-## [ ] Fase 6 — Auth Service & Handler
+## [x] Fase 6 — Auth Service & Handler
 
 ### Auth Service
-- [ ] Buat `internal/service/auth_service.go`:
-  - [ ] `Register(req dto.RegisterRequest) (*dto.AuthResponse, error)`
+- [x] Buat `internal/service/auth_service.go`:
+  - [x] `Register(req dto.RegisterRequest) (*dto.AuthResponse, error)`
     - Hash password dengan `bcrypt.GenerateFromPassword()`
     - Simpan user ke database
     - Generate JWT token
-  - [ ] `Login(req dto.AuthRequest) (*dto.AuthResponse, error)`
+  - [x] `Login(req dto.AuthRequest) (*dto.AuthResponse, error)`
     - Cari user by email
     - Bandingkan password dengan `bcrypt.CompareHashAndPassword()`
     - Generate JWT token
 
 ### DTO
-- [ ] Buat `internal/dto/register_request.go`: `{ Name, Email, Password }`
-- [ ] Buat `internal/dto/auth_request.go`: `{ Email, Password }`
-- [ ] Buat `internal/dto/auth_response.go`: `{ Token }`
+- [x] Buat `internal/dto/register_request.go`: `{ Name, Email, Password }`
+- [x] Buat `internal/dto/auth_request.go`: `{ Email, Password }`
+- [x] Buat `internal/dto/auth_response.go`: `{ Token }`
 
 ### Auth Handler
-- [ ] Buat `internal/handler/auth_handler.go`:
-  - [ ] `Register(c *fiber.Ctx) error` — `POST /api/v1/auth/register`
-  - [ ] `Login(c *fiber.Ctx) error` — `POST /api/v1/auth/login`
-- [ ] Pahami cara parse JSON body di Fiber: `c.BodyParser(&req)`
-- [ ] Pahami cara return JSON di Fiber: `c.JSON(response)`
+- [x] Buat `internal/handler/auth_handler.go`:
+  - [x] `Register(c *fiber.Ctx) error` — `POST /api/v1/auth/register`
+  - [x] `Login(c *fiber.Ctx) error` — `POST /api/v1/auth/login`
+- [x] Pahami cara parse JSON body di Fiber: `c.BodyParser(&req)`
+- [x] Pahami cara return JSON di Fiber: `c.JSON(response)`
 
 ---
 
-## [ ] Fase 7 — JWT Middleware & Protected Routes
+## [x] Fase 7 — JWT Middleware & Protected Routes
 
-- [ ] Buat `internal/middleware/jwt_middleware.go`:
-  - [ ] Ambil header `Authorization: Bearer <token>`
-  - [ ] Panggil `jwtService.ValidateToken(token)`
-  - [ ] Simpan email/user ke `c.Locals("userEmail", email)` (ekuivalen SecurityContextHolder)
-  - [ ] Return 401 jika token tidak ada atau invalid
-- [ ] Buat `internal/handler/demo_handler.go`:
-  - [ ] `Hello(c *fiber.Ctx) error` — ambil user dari `c.Locals`
-  - [ ] `AdminOnly(c *fiber.Ctx) error` — cek role user
-- [ ] Setup routing di `cmd/main.go`:
+- [x] Buat `internal/middleware/jwt_middleware.go`:
+  - [x] Ambil header `Authorization: Bearer <token>`
+  - [x] Panggil `jwtService.ValidateToken(token)`
+  - [x] Simpan email/user ke `c.Locals("userEmail", email)` (ekuivalen SecurityContextHolder)
+  - [x] Return 401 jika token tidak ada atau invalid
+- [x] Buat `internal/handler/demo_handler.go`:
+  - [x] `Hello(c *fiber.Ctx) error` — ambil user dari `c.Locals`
+  - [x] `AdminOnly(c *fiber.Ctx) error` — cek role user
+- [x] Setup routing di `cmd/main.go`:
   ```go
   app := fiber.New()
   // Public
@@ -175,31 +175,26 @@ Checklist bertahap dari instalasi Go hingga production. Tandai [x] saat selesai.
 
 ---
 
-## [ ] Fase 8 — Testing
+## [x] Fase 8 — Testing
 
-- [ ] Test register via curl:
+- [x] Test register via curl:
   ```bash
   curl -X POST http://localhost:8081/api/v1/auth/register \
     -H "Content-Type: application/json" \
     -d '{"name":"John","email":"john@example.com","password":"secret123"}'
   ```
-- [ ] Test login & dapat token
-- [ ] Test protected endpoint dengan token valid
-- [ ] Test protected endpoint tanpa token — harus 401
-- [ ] Bandingkan response time Go vs Spring Boot:
-  ```bash
-  # Benchmark sederhana
-  time curl -X POST http://localhost:8080/api/v1/auth/login ...  # Spring Boot
-  time curl -X POST http://localhost:8081/api/v1/auth/login ...  # Go
-  ```
+- [x] Test login & dapat token
+- [x] Test protected endpoint dengan token valid
+- [x] Test protected endpoint tanpa token — harus 401
+- [x] Bandingkan response time Go vs Spring Boot
 
 ---
 
-## [ ] Fase 9 — Polish & README
+## [x] Fase 9 — Polish & README
 
-- [ ] Buat `README.md` yang lengkap (mirip baseapp)
-- [ ] Tambahkan `.gitignore` (exclude `.env`, binary, dll.)
-- [ ] Tulis unit test untuk `jwt_service.go`
+- [x] Buat `README.md` yang lengkap (mirip baseapp)
+- [x] Tambahkan `.gitignore` (exclude `.env`, binary, dll.)
+- [x] Tulis unit test untuk `jwt_service.go`
 - [ ] Push ke GitHub: `git push -u origin main`
 
 ---
