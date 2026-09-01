@@ -1,0 +1,14 @@
+# Environment variables (Sangat rahasia, jangan sampai ter-commit ke git)
+.env
+
+# Binary output & Air temporary directory
+tmp/
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# OS files
+.DS_Store
